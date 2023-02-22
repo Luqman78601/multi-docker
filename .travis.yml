@@ -1,0 +1,17 @@
+sudo: required
+langauge: generic
+
+services:
+  -docker
+
+before_install:
+  - docker build -t lfakroodeen/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true lfakroodeen/react-test npm test
+
+after_success:
+  - docker build -t lfakroodeen/multi-client ./client
+  - docker build -t lfakroodeen/multi-nginx ./nginx
+  - docker build -t lfakroodeen/multi-server ./server
+  - docker build -t lfakroodeen/multi-worker ./worker
