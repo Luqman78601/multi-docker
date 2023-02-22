@@ -18,7 +18,7 @@ after_success:
   # Log in to the Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Pushing the images to docker hub
-  - docker push luqmanfak/multi-client
-  - docker push luqmanfak/multi-nginx
+  - docker push lfakroodeen/multi-client
+  - docker push lfakroodeen/multi-nginx
   - docker push lfakroodeen/multi-server
   - docker push lfakroodeen/multi-worker
