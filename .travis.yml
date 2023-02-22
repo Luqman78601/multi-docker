@@ -15,3 +15,10 @@ after_success:
   - docker build -t lfakroodeen/multi-nginx ./nginx
   - docker build -t lfakroodeen/multi-server ./server
   - docker build -t lfakroodeen/multi-worker ./worker
+  # Log in to the Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Pushing the images to docker hub
+  - docker push lfakroodeen/multi-client
+  - docker push lfakroodeen/multi-nginx
+  - docker push lfakroodeen/multi-server
+  - docker push lfakroodeen/multi-worker
