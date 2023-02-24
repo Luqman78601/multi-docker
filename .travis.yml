@@ -24,6 +24,8 @@ after_success:
   - docker push luqmanfak/multi-server
   - docker push luqmanfak/multi-worker
 
+
+# Pushing to EBS
   deploy:
   provider: elasticbeanstalk
   region: 'ap-northeast-1'
